@@ -1,9 +1,9 @@
 import React from 'react';
 
-const Input = (title) => {
+const Input = (name, title, value, onChange) => {
     return (
         <div className="input">
-            <input/>
+            <input name={name} value={value} onChange={onChange}/>
             <label>{ title }</label>
         </div>
     )
