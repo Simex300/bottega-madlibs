@@ -8,8 +8,22 @@ class Card extends Component {
         super()
 
         this.state = {
-            color: "",
-            pluralNoun: ''
+            color: '',
+            pluralNoun: '',
+            adjectiveOne: '',
+            cerebOne: '',
+            adjectiveTwo: '',
+            nounOne: '',
+            numberOne: '',
+            numberTwo: '',
+            nounTwo: '',
+            adjectiveThree: '',
+            celebTwo: '',
+            celebThree: '',
+            adjectiveFour: '',
+            nounThree: '',
+            celebFour: '',
+            adjectiveFive: ''
         }
 
         this.handleInputChange = this.handleInputChange.bind(this);
@@ -22,12 +36,34 @@ class Card extends Component {
     }
 
     render() {
+
+        const inputData = [
+            {name: 'color', title: 'Color', state: this.state.color},
+            {name: 'pluralNoun', title: 'Plural Noun', state: this.state.color},
+            {name: 'adjectiveOne', title: 'Adjective', state: this.state.color},
+            {name: 'cerebOne', title: 'Celebrity', state: this.state.color},
+
+            {name: 'adjectiveTwo', title: 'Adjective', state: this.state.adjectiveTwo},
+            {name: 'nounOne', title: 'Noun', state: this.state.nounOne},
+            {name: 'numberOne', title: 'Number', state: this.state.numberOne},
+            {name: 'numberTwo', title: 'Number', state: this.state.numberTwo},
+
+            {name: 'nounTwo', title: 'Noun', state: this.state.nounTwo},
+            {name: 'adjectiveThree', title: 'Adjective', state: this.state.adjectiveThree},
+            {name: 'celebTwo', title: 'Celebrity', state: this.state.celebTwo},
+            {name: 'celebThree', title: 'Celebrity', state: this.state.celebThree},
+
+            {name: 'adjectiveFour', title: 'Adjective', state: this.state.adjectiveFour},
+            {name: 'nounThree', title: 'Noun', state: this.state.nounThree},
+            {name: 'celebFour', title: 'Celebrity', state: this.state.celebFour},
+            {name: 'adjectiveFive', title: 'Adjective', state: this.state.adjectiveFive}
+        ]
+
         return (
             <div className="card">
-                <h1>{ this.state.color }</h1>
-                { Input('color', "Color", this.state.color, this.handleInputChange) }
-                <h1>{ this.state.pluralNoun }</h1>
-                { Input('pluralNoun', "Plural Noun", this.state.pluralNoun, this.handleInputChange) }
+                {
+                    inputData.map(data => Input((data), this.handleInputChange))
+                }
             </div>
         )
     }
