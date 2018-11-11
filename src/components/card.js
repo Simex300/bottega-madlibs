@@ -3,31 +3,31 @@ import React , { Component } from 'react';
 import Input from './input';
 import Content from './content';
 
+const INITIAL_STATE = {
+    color: '',
+    pluralNoun: '',
+    adjectiveOne: '',
+    cerebOne: '',
+    adjectiveTwo: '',
+    nounOne: '',
+    numberOne: '',
+    numberTwo: '',
+    nounTwo: '',
+    adjectiveThree: '',
+    celebTwo: '',
+    celebThree: '',
+    adjectiveFour: '',
+    nounThree: '',
+    celebFour: '',
+    adjectiveFive: '',
+    contentVisible: false,
+}
+
 class Card extends Component {
 
     constructor(){
-        super()
-
-        this.state = {
-            color: '',
-            pluralNoun: '',
-            adjectiveOne: '',
-            cerebOne: '',
-            adjectiveTwo: '',
-            nounOne: '',
-            numberOne: '',
-            numberTwo: '',
-            nounTwo: '',
-            adjectiveThree: '',
-            celebTwo: '',
-            celebThree: '',
-            adjectiveFour: '',
-            nounThree: '',
-            celebFour: '',
-            adjectiveFive: '',
-            contentVisible: false,
-        }
-
+        super();
+        this.state = INITIAL_STATE;
         this.handleInputChange = this.handleInputChange.bind(this);
         this.handleFormSubmit = this.handleFormSubmit.bind(this);
     }
@@ -40,8 +40,13 @@ class Card extends Component {
 
     handleFormSubmit(event){
         event.preventDefault();
-        
-        this.setState({ contentVisible: !this.state.contentVisible });
+        if(this.state.contentVisible){
+            console.log("Goes inside");
+            this.setState(INITIAL_STATE);
+        }
+        else{
+            this.setState({ contentVisible: true });
+        }
     }
 
     render() {
