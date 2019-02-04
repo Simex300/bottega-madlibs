@@ -41,7 +41,6 @@ class Card extends Component {
     handleFormSubmit(event){
         event.preventDefault();
         if(this.state.contentVisible){
-            console.log("Goes inside");
             this.setState(INITIAL_STATE);
         }
         else{
@@ -53,9 +52,9 @@ class Card extends Component {
 
         const inputData = [
             {name: 'color', title: 'Color', state: this.state.color},
-            {name: 'pluralNoun', title: 'Plural Noun', state: this.state.color},
-            {name: 'adjectiveOne', title: 'Adjective', state: this.state.color},
-            {name: 'cerebOne', title: 'Celebrity', state: this.state.color},
+            {name: 'pluralNoun', title: 'Plural Noun', state: this.state.pluralNoun},
+            {name: 'adjectiveOne', title: 'Adjective', state: this.state.adjectiveOne},
+            {name: 'cerebOne', title: 'Celebrity', state: this.state.cerebOne},
 
             {name: 'adjectiveTwo', title: 'Adjective', state: this.state.adjectiveTwo},
             {name: 'nounOne', title: 'Noun', state: this.state.nounOne},
@@ -74,13 +73,13 @@ class Card extends Component {
         ]
 
         return (
-            <form onSubmit={this.handleFormSubmit} className="card">
+            <form onSubmit={this.handleFormSubmit} className="card" autocomplete="off" >
                 <div className="card__inputs">
                 {
                     inputData.map((data, index) => Input((data), this.handleInputChange, index))
                 }
                 </div>
-                <button type="submit">{!this.state.contentVisible ? "Generate" : "Clear"} Mad Lib</button>
+                <button className={`card__${!this.state.contentVisible ? "generate" : "clear"}`} type="submit">{!this.state.contentVisible ? "Generate" : "Clear"} Mad Lib</button>
                 {
                     this.state.contentVisible ? <Content data={this.state}/> : ''
                 }

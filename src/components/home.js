@@ -7,7 +7,7 @@ import Card from './card';
   render() {
     return (
       <div className='home'>
-        { Header("Madlabs", "React Bootstrap") }
+        { Header("Bottega Madlibs", "Fill out the fields below and click the generate button to se the Mad Lib story") }
         <Card />
       </div>
     );
